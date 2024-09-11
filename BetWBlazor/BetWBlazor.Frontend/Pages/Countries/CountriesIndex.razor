@@ -1,9 +1,9 @@
 ﻿@page "/countries"
 
-<h3>Paises</h3>
+<h3>@Localizer["Countries"]</h3>
 
 <div class="mb-3">
-    <a class="btn btn-primary" href="/countries/create">Crear Pais</a>
+    <a class="btn btn-primary" href="/countries/create">@Localizer["New"] @Localizer["Country"]</a>
 </div>
 
 <GenericList MyList="Countries">
@@ -11,8 +11,8 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <td>Pais</td>
-                    <td>Opciones</td>
+                    <td>@Localizer["Country"]</td>
+                    <td>@Localizer["Options"]</td>
                 </tr>
             </thead>
             <tbody>
@@ -21,8 +21,8 @@
                     <tr>
                         <td>@item.Name</td>
                         <td>
-                            <a class="btn btn-warning">Editar</a>
-                            <button class="btn btn-danger">Borrar</button>
+                            <a class="btn btn-warning" href="/countries/edit/@item.Id">@Localizer["Edit"]</a>
+                            <button class="btn btn-danger" @onclick=@(() => DeleteAsync(item))>@Localizer["Delete"]</button>
                         </td>
                     </tr>
                 }
