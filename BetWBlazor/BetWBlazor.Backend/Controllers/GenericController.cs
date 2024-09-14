@@ -15,7 +15,7 @@ public class GenericController<T> : Controller where T : class
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAsync()
+    public virtual async Task<IActionResult> GetAsync()
     {
         var action = await _unitOfWork.GetAsync();
         if (action.WasSuccess)
@@ -25,7 +25,7 @@ public class GenericController<T> : Controller where T : class
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetAsync(int id)
+    public virtual async Task<IActionResult> GetAsync(int id)
     {
         var action = await _unitOfWork.GetAsync(id);
         if (action.WasSuccess)
@@ -35,7 +35,7 @@ public class GenericController<T> : Controller where T : class
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostAsync(T model)
+    public virtual async Task<IActionResult> PostAsync(T model)
     {
         var action = await _unitOfWork.AddAsync(model);
         if (action.WasSuccess)
@@ -45,7 +45,7 @@ public class GenericController<T> : Controller where T : class
     }
 
     [HttpPut]
-    public async Task<IActionResult> PutAsync(T model)
+    public virtual async Task<IActionResult> PutAsync(T model)
     {
         var action = await _unitOfWork.UpdateAsync(model);
         if (action.WasSuccess)
