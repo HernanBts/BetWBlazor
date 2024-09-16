@@ -15,4 +15,9 @@ public class Country
     public ICollection<Team>? Teams { get; set; }
 
     public int TeamsCount => Teams == null ? 0 : Teams.Count;
+
+    public static implicit operator Country(Team v)
+    {
+        throw new NotImplementedException();
+    }
 }
