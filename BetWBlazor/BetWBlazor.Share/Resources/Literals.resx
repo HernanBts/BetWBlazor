@@ -222,4 +222,13 @@
   <data name="ERR005" xml:space="preserve">
     <value>The team id is not valid.</value>
   </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Select a file...</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search...</value>
+  </data>
+  <data name="SelectACountry" xml:space="preserve">
+    <value>-- Select a Country --</value>
+  </data>
 </root>

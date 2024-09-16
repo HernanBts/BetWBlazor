@@ -62,7 +62,7 @@ public class TeamsRepository : GenericRepository<Team>, ITeamsRepository
             return new ActionResponse<Team>
             {
                 WasSuccess = false,
-                Message = "ERR04"
+                Message = "ERR004"
             };
         }
 
@@ -123,17 +123,17 @@ public class TeamsRepository : GenericRepository<Team>, ITeamsRepository
             return new ActionResponse<Team>
             {
                 WasSuccess = false,
-                Message = "ERR05"
+                Message = "ERR005"
             };
         }
 
-        var country = await _context.Teams.FindAsync(teamDTO.CountryId);
+        var country = await _context.Countries.FindAsync(teamDTO.CountryId);
         if (country is null)
         {
             return new ActionResponse<Team>
             {
                 WasSuccess = false,
-                Message = "ERR04"
+                Message = "ERR004"
             };
         }
 

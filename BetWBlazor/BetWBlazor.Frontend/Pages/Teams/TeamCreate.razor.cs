@@ -1,16 +1,18 @@
+using BetWBlazor.Frontend.Pages.Countries;
 using BetWBlazor.Frontend.Repositories;
+using BetWBlazor.Share.DTOs;
 using BetWBlazor.Share.Entities;
 using BetWBlazor.Share.Resources;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 
-namespace BetWBlazor.Frontend.Pages.Countries;
+namespace BetWBlazor.Frontend.Pages.Teams;
 
-public partial class CountryCreate
+public partial class TeamCreate
 {
-    private CountryForm? form;
-    private Country country = new();
+    private TeamForm? form;
+    private TeamDTO teamDTO = new();
 
     [Inject] private IRepository Repository { get; set; } = null!;
     [Inject] private NavigationManager NavigationManager { get; set; } = null!;
@@ -19,11 +21,11 @@ public partial class CountryCreate
 
     private async Task CreateAsync()
     {
-        var responseHttp = await Repository.PostAsync("api/countries", country);
+        var responseHttp = await Repository.PostAsync("api/teams/full", teamDTO);
         if (responseHttp.Error)
         {
             var message = await responseHttp.GetErrorMessageAsync();
-            await SweetAlertService.FireAsync(Localizer["Error"], Localizer[message!]);
+            await SweetAlertService.FireAsync(Localizer["Error"], Localizer[message!], SweetAlertIcon.Error);
             return;
         }
 
@@ -42,6 +44,6 @@ public partial class CountryCreate
     private void Return()
     {
         form!.FormPostedSuccessfully = true;
-        NavigationManager.NavigateTo("/countries");
+        NavigationManager.NavigateTo("/teams");
     }
 }
