@@ -18,4 +18,10 @@
     <ProjectReference Include="..\BetWBlazor.Share\BetWBlazor.Share.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\images\noImage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
