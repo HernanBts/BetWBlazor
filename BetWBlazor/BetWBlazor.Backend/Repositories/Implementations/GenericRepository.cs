@@ -1,5 +1,7 @@
 ﻿using BetWBlazor.Backend.Data;
+using BetWBlazor.Backend.Helpers;
 using BetWBlazor.Backend.Repositories.Interfaces;
+using BetWBlazor.Share.DTOs;
 using BetWBlazor.Share.Responses;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
@@ -116,6 +118,31 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         {
             return ExceptionActionResponse(ex);
         }
+    }
+
+    public virtual async Task<ActionResponse<int>> GetTotalRecordsAsync()
+    {
+        var queryanle = _entity.AsQueryable();
+
+        double count = await queryanle.CountAsync();
+        return new ActionResponse<int>
+        {
+            WasSuccess = true,
+            Result = (int)count
+        };
+    }
+
+    public virtual async Task<ActionResponse<IEnumerable<T>>> GetAsync(PaginationDTO pagination)
+    {
+        var queryanle = _entity.AsQueryable();
+
+        return new ActionResponse<IEnumerable<T>>
+        {
+            WasSuccess = true,
+            Result = await queryanle
+                .Paginate(pagination)
+                .ToListAsync()
+        };
     }
 
     private ActionResponse<T> ExceptionActionResponse(Exception ex)

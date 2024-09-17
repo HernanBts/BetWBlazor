@@ -1,5 +1,6 @@
 ﻿using BetWBlazor.Backend.Repositories.Interfaces;
 using BetWBlazor.Backend.UnitsOfWork.Interfaces;
+using BetWBlazor.Share.DTOs;
 using BetWBlazor.Share.Responses;
 
 namespace BetWBlazor.Backend.UnitsOfWork.Implementations;
@@ -22,4 +23,8 @@ public class GenericUnitOfWork<T> : IGenericUnitOfWork<T> where T : class
     public virtual async Task<ActionResponse<T>> DeleteAsync(int id) => await _repository.DeleteAsync(id);
 
     public virtual async Task<ActionResponse<T>> UpdateAsync(T model) => await _repository.UpdateAsync(model);
+
+    public virtual async Task<ActionResponse<int>> GetTotalRecordsAsync() => await _repository.GetTotalRecordsAsync();
+
+    public virtual async Task<ActionResponse<IEnumerable<T>>> GetAsync(PaginationDTO pagination) => await _repository.GetAsync(pagination);
 }

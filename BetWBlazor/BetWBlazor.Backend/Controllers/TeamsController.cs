@@ -36,6 +36,17 @@ public class TeamsController : GenericController<Team>
         return NotFound(response.Message);
     }
 
+    [HttpGet("paginated")]
+    public override async Task<IActionResult> GetAsync(PaginationDTO pagination)
+    {
+        var response = await _teamsUnitOfWork.GetAsync(pagination);
+        if (response.WasSuccess)
+        {
+            return Ok(response.Result);
+        }
+        return BadRequest();
+    }
+
     [HttpGet("combo/{id:int}")]
     public async Task<IActionResult> GetComboAsync(int id)
     {
@@ -60,5 +71,16 @@ public class TeamsController : GenericController<Team>
             return Ok(action.Result);
 
         return BadRequest(action.Message);
+    }
+
+    [HttpGet("totalRecordsPaginated")]
+    public async Task<IActionResult> GetTotalRecordsAsync([FromQuery] PaginationDTO pagination)
+    {
+        var action = await _teamsUnitOfWork.GetTotalRecordsAsync(pagination);
+        if (action.WasSuccess)
+        {
+            return Ok(action.Result);
+        }
+        return BadRequest();
     }
 }

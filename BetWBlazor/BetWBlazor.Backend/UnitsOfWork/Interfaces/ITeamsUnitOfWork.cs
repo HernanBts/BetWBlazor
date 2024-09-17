@@ -15,4 +15,8 @@ public interface ITeamsUnitOfWork
     Task<ActionResponse<IEnumerable<Team>>> GetAsync();
 
     Task<IEnumerable<Team>> GetComboAsync(int countryId);
+
+    Task<ActionResponse<IEnumerable<Team>>> GetAsync(PaginationDTO pagination);
+
+    Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 }
