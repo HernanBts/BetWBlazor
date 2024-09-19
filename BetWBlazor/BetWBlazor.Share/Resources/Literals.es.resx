@@ -231,4 +231,28 @@
   <data name="SelectACountry" xml:space="preserve">
     <value>-- Seleccione un Pais --</value>
   </data>
+  <data name="RecordsNumber" xml:space="preserve">
+    <value>Numero de registros</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtrar</value>
+  </data>
+  <data name="Clean" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="IsImageSquare" xml:space="preserve">
+    <value>¿La imagen es cuadrada?</value>
+  </data>
+  <data name="Rectangular" xml:space="preserve">
+    <value>Rectangular</value>
+  </data>
+  <data name="Square" xml:space="preserve">
+    <value>Cuadrada</value>
+  </data>
 </root>
