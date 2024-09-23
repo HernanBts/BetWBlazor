@@ -241,6 +241,15 @@ namespace BetWBlazor.Share.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to is rectangular?.
+        /// </summary>
+        public static string ImageIsRectangular {
+            get {
+                return ResourceManager.GetString("ImageIsRectangular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The image es square?.
         /// </summary>
         public static string IsImageSquare {

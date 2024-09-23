@@ -9,28 +9,19 @@
                   Class="mb-4" />
 
     <MudAutocomplete T="Country"
-                        Label=@Localizer["Country"]
-                        Placeholder=@Localizer["SelectACountry"]
-                        SearchFunc="SearchCountry"
-                        Value="selectedCountry"
-                        ValueChanged="CountryChanged"
-                        ToStringFunc="@(e=> e==null?null : $"{e.Name}")">
+                     Label=@Localizer["Country"]
+                     Placeholder=@Localizer["SelectACountry"]
+                     SearchFunc="SearchCountry"
+                     Value="selectedCountry"
+                     ValueChanged="CountryChanged"
+                     ToStringFunc="@(e=> e==null?null : $"{e.Name}")">
         <ItemTemplate Context="itemContext">
             @itemContext.Name
         </ItemTemplate>
     </MudAutocomplete>
 
-    <MudToggleIconButton Toggled="TeamDTO.IsImageSquare"
-                         ToggledChanged="OnToggledChanged"
-                         Icon="@Icons.Material.Filled.Square"
-                         Color="@Color.Primary"
-                         ToggledIcon="@Icons.Material.Filled.Rectangle"
-                         ToggledColor="@Color.Secondary"
-                         title="@(TeamDTO.IsImageSquare ? @Localizer["Rectangular"] : @Localizer["Square"])" />
-    <span>@shapeImageMessage</span>
-
     <div class="my-2">
-        <InputImg Label=@Localizer["Image"] ImageSelected="ImageSelected" ImageURL="@imageUrl" />
+        <InputImage Label=@Localizer["Image"] ImageSelected="ImageSelected" ImageURL="@imageUrl" />
     </div>
 
     <MudButton Variant="Variant.Outlined"

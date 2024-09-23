@@ -255,4 +255,7 @@
   <data name="Square" xml:space="preserve">
     <value>Cuadrada</value>
   </data>
+  <data name="ImageIsRectangular" xml:space="preserve">
+    <value>¿es rectangular?</value>
+  </data>
 </root>
